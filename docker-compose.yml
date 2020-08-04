@@ -1,0 +1,19 @@
+version: "3.4"
+
+services:
+  helloer:
+    container_name: python-monorepo-helloer
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.helloer
+    environment: {}
+    ports:
+      - 8088:80
+  goodbyer:
+    container_name: python-monorepo-goodbyer
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.goodbyer
+    environment: {}
+    ports:
+      - 8089:80

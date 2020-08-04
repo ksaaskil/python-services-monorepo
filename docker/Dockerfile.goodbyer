@@ -1,0 +1,18 @@
+# Needs to run in the context of the repository root.
+FROM python:3.8.3
+
+WORKDIR /shared
+
+COPY shared .
+
+WORKDIR /app
+
+COPY goodbyer/requirements.txt .
+
+RUN pip install -r requirements.txt
+
+EXPOSE 80
+
+COPY goodbyer/ /app
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
